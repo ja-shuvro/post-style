@@ -83,6 +83,14 @@
 			generateShortcode();
 		});
 
+		function syncExcerptLengthVisibility() {
+			if ($excerptCheckbox.is(':checked')) {
+				$excerptLengthRow.show();
+			} else {
+				$excerptLengthRow.hide();
+			}
+		}
+
 		$excerptCheckbox.on('change', function() {
 			if ($(this).is(':checked')) {
 				$excerptLengthRow.slideDown();
@@ -91,6 +99,8 @@
 			}
 			generateShortcode();
 		});
+
+		syncExcerptLengthVisibility();
 
 		$copyButton.on('click', function() {
 			var shortcode = $shortcodeBox.text();

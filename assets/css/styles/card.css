@@ -1,5 +1,6 @@
 /**
  * Post Style - Card Style
+ * Modern card design with glassmorphism effects
  *
  * @package PostStyle
  */
@@ -7,68 +8,128 @@
 .post-style-cards {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 1.5em;
+	gap: 2em;
 }
 
 .post-style-card {
-	background: #fff;
-	border: 1px solid #e5e5e5;
-	border-radius: 8px;
+	background: var(--post-style-bg);
+	border: 1px solid var(--post-style-border);
+	border-radius: var(--post-style-radius);
 	overflow: hidden;
-	transition: box-shadow 0.3s ease, transform 0.3s ease;
+	transition: var(--post-style-transition);
+	box-shadow: var(--post-style-shadow);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.post-style-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--post-style-primary), var(--post-style-primary-light), var(--post-style-primary));
+	opacity: 0;
+	transition: var(--post-style-transition);
+	z-index: 1;
 }
 
 .post-style-card:hover {
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-	transform: translateY(-2px);
+	box-shadow: var(--post-style-shadow-lg);
+	transform: translateY(-8px);
+	border-color: var(--post-style-primary-light);
+}
+
+.post-style-card:hover::before {
+	opacity: 1;
 }
 
 .post-style-card .post-style-image {
-	border-radius: 8px 8px 0 0;
+	border-radius: var(--post-style-radius) var(--post-style-radius) 0 0;
+	height: 220px;
+}
+
+.post-style-card .post-style-image img {
+	height: 100%;
+	object-fit: cover;
 }
 
 .post-style-card-content {
-	padding: 1.5em;
+	padding: 1.75em;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 }
 
 .post-style-card .post-style-title {
 	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+.post-style-card .post-style-excerpt {
+	flex: 1;
+}
+
+.post-style-card .post-style-read-more {
+	margin-top: auto;
+	align-self: flex-start;
 }
 
 .post-style-columns-2 .post-style-cards {
 	grid-template-columns: repeat(2, 1fr);
+	gap: 2em;
 }
 
 .post-style-columns-3 .post-style-cards {
 	grid-template-columns: repeat(3, 1fr);
+	gap: 2em;
 }
 
 .post-style-columns-4 .post-style-cards {
 	grid-template-columns: repeat(4, 1fr);
+	gap: 1.75em;
 }
 
 @media (max-width: 1024px) {
 	.post-style-columns-4 .post-style-cards {
 		grid-template-columns: repeat(3, 1fr);
+		gap: 1.75em;
 	}
 }
 
 @media (max-width: 768px) {
+	.post-style-cards {
+		gap: 1.5em;
+	}
+
 	.post-style-columns-3 .post-style-cards,
 	.post-style-columns-4 .post-style-cards {
 		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5em;
+	}
+
+	.post-style-card .post-style-image {
+		height: 200px;
 	}
 }
 
 @media (max-width: 480px) {
 	.post-style-cards {
 		grid-template-columns: 1fr;
+		gap: 1.5em;
 	}
 
 	.post-style-columns-2 .post-style-cards,
 	.post-style-columns-3 .post-style-cards,
 	.post-style-columns-4 .post-style-cards {
 		grid-template-columns: 1fr;
+	}
+
+	.post-style-card .post-style-image {
+		height: 180px;
 	}
 }
 

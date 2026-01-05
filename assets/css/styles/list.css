@@ -1,5 +1,6 @@
 /**
  * Post Style - List Style
+ * Modern list with hover effects
  *
  * @package PostStyle
  */
@@ -12,33 +13,83 @@
 
 .post-style-list-item {
 	display: flex;
-	gap: 1.5em;
-	padding: 1.5em 0;
-	border-bottom: 1px solid #e5e5e5;
+	gap: 2em;
+	padding: 2em;
+	margin-bottom: 1.5em;
+	background: var(--post-style-bg);
+	border: 1px solid var(--post-style-border);
+	border-radius: var(--post-style-radius);
+	transition: var(--post-style-transition);
+	box-shadow: var(--post-style-shadow);
+	position: relative;
+	overflow: hidden;
+}
+
+.post-style-list-item::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 4px;
+	background: linear-gradient(180deg, var(--post-style-primary), var(--post-style-primary-light));
+	opacity: 0;
+	transition: var(--post-style-transition);
+}
+
+.post-style-list-item:hover {
+	box-shadow: var(--post-style-shadow-lg);
+	transform: translateX(8px);
+	border-color: var(--post-style-primary-light);
+}
+
+.post-style-list-item:hover::before {
+	opacity: 1;
 }
 
 .post-style-list-item:last-child {
-	border-bottom: none;
+	margin-bottom: 0;
 }
 
 .post-style-list-item .post-style-image {
-	flex: 0 0 150px;
-	max-width: 150px;
+	flex: 0 0 200px;
+	max-width: 200px;
+	border-radius: var(--post-style-radius-sm);
+	overflow: hidden;
+	height: 150px;
+}
+
+.post-style-list-item .post-style-image img {
+	height: 100%;
+	object-fit: cover;
 }
 
 .post-style-list-item .post-style-content {
 	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.post-style-list-item .post-style-title {
+	margin-bottom: 0.75em;
 }
 
 @media (max-width: 767px) {
 	.post-style-list-item {
 		flex-direction: column;
-		gap: 1em;
+		gap: 1.25em;
+		padding: 1.5em;
+	}
+
+	.post-style-list-item:hover {
+		transform: translateY(-4px);
 	}
 
 	.post-style-list-item .post-style-image {
 		flex: 1 1 auto;
 		max-width: 100%;
+		height: 200px;
 	}
 }
 

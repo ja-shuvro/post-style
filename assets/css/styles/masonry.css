@@ -1,63 +1,113 @@
 /**
  * Post Style - Masonry Style
+ * Modern Pinterest-style layout
  *
  * @package PostStyle
  */
 
 .post-style-masonry {
-	column-gap: 1.5em;
+	column-gap: 2em;
 	column-fill: balance;
 }
 
 .post-style-masonry-item {
 	display: inline-block;
 	width: 100%;
-	margin-bottom: 1.5em;
-	background: #fff;
-	border: 1px solid #e5e5e5;
-	border-radius: 8px;
+	margin-bottom: 2em;
+	background: var(--post-style-bg);
+	border: 1px solid var(--post-style-border);
+	border-radius: var(--post-style-radius);
 	overflow: hidden;
-	transition: box-shadow 0.3s ease;
+	transition: var(--post-style-transition);
+	box-shadow: var(--post-style-shadow);
 	break-inside: avoid;
 	page-break-inside: avoid;
+	position: relative;
+}
+
+.post-style-masonry-item::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(135deg, var(--post-style-primary) 0%, var(--post-style-primary-dark) 100%);
+	opacity: 0;
+	transition: var(--post-style-transition);
+	pointer-events: none;
+	z-index: 1;
+	border-radius: var(--post-style-radius);
 }
 
 .post-style-masonry-item:hover {
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--post-style-shadow-lg);
+	transform: translateY(-6px);
+}
+
+.post-style-masonry-item:hover::before {
+	opacity: 0.03;
+}
+
+.post-style-masonry-item .post-style-image {
+	height: auto;
+	min-height: 200px;
+}
+
+.post-style-masonry-item .post-style-image img {
+	width: 100%;
+	height: auto;
+	display: block;
 }
 
 .post-style-masonry-content {
-	padding: 1.5em;
+	padding: 1.75em;
+	position: relative;
+	z-index: 2;
 }
 
 .post-style-columns-2 .post-style-masonry {
 	column-count: 2;
+	column-gap: 2em;
 }
 
 .post-style-columns-3 .post-style-masonry {
 	column-count: 3;
+	column-gap: 2em;
 }
 
 .post-style-columns-4 .post-style-masonry {
 	column-count: 4;
+	column-gap: 1.75em;
 }
 
 @media (max-width: 1024px) {
 	.post-style-columns-4 .post-style-masonry {
 		column-count: 3;
+		column-gap: 1.75em;
 	}
 }
 
 @media (max-width: 768px) {
+	.post-style-masonry {
+		column-gap: 1.5em;
+	}
+
 	.post-style-columns-3 .post-style-masonry,
 	.post-style-columns-4 .post-style-masonry {
 		column-count: 2;
+		column-gap: 1.5em;
+	}
+
+	.post-style-masonry-item {
+		margin-bottom: 1.5em;
 	}
 }
 
 @media (max-width: 480px) {
 	.post-style-masonry {
 		column-count: 1 !important;
+		column-gap: 1.5em;
 	}
 }
 

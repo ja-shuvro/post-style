@@ -1,5 +1,6 @@
 /**
  * Post Style - Grid Style
+ * Modern grid with overlay effects
  *
  * @package PostStyle
  */
@@ -7,59 +8,125 @@
 .post-style-grid {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 1.5em;
+	gap: 2em;
 }
 
 .post-style-grid-item {
-	background: #fff;
-	border: 1px solid #e5e5e5;
-	border-radius: 8px;
+	background: var(--post-style-bg);
+	border: 1px solid var(--post-style-border);
+	border-radius: var(--post-style-radius);
 	overflow: hidden;
-	transition: box-shadow 0.3s ease;
+	transition: var(--post-style-transition);
+	box-shadow: var(--post-style-shadow);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.post-style-grid-item::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(135deg, var(--post-style-primary) 0%, var(--post-style-primary-dark) 100%);
+	opacity: 0;
+	transition: var(--post-style-transition);
+	pointer-events: none;
+	z-index: 1;
 }
 
 .post-style-grid-item:hover {
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--post-style-shadow-lg);
+	transform: translateY(-4px);
+}
+
+.post-style-grid-item:hover::after {
+	opacity: 0.05;
+}
+
+.post-style-grid-item .post-style-image {
+	position: relative;
+	height: 240px;
+	overflow: hidden;
+}
+
+.post-style-grid-item .post-style-image img {
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
 }
 
 .post-style-grid-content {
-	padding: 1.5em;
+	padding: 1.75em;
+	position: relative;
+	z-index: 2;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.post-style-grid-item .post-style-title {
+	margin-bottom: 0.75em;
+}
+
+.post-style-grid-item .post-style-excerpt {
+	flex: 1;
 }
 
 .post-style-columns-2 .post-style-grid {
 	grid-template-columns: repeat(2, 1fr);
+	gap: 2em;
 }
 
 .post-style-columns-3 .post-style-grid {
 	grid-template-columns: repeat(3, 1fr);
+	gap: 2em;
 }
 
 .post-style-columns-4 .post-style-grid {
 	grid-template-columns: repeat(4, 1fr);
+	gap: 1.75em;
 }
 
 @media (max-width: 1024px) {
 	.post-style-columns-4 .post-style-grid {
 		grid-template-columns: repeat(3, 1fr);
+		gap: 1.75em;
 	}
 }
 
 @media (max-width: 768px) {
+	.post-style-grid {
+		gap: 1.5em;
+	}
+
 	.post-style-columns-3 .post-style-grid,
 	.post-style-columns-4 .post-style-grid {
 		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5em;
+	}
+
+	.post-style-grid-item .post-style-image {
+		height: 200px;
 	}
 }
 
 @media (max-width: 480px) {
 	.post-style-grid {
 		grid-template-columns: 1fr;
+		gap: 1.5em;
 	}
 
 	.post-style-columns-2 .post-style-grid,
 	.post-style-columns-3 .post-style-grid,
 	.post-style-columns-4 .post-style-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.post-style-grid-item .post-style-image {
+		height: 180px;
 	}
 }
 

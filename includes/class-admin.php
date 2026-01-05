@@ -52,7 +52,7 @@ class Admin {
 			__( 'Shortcode Generator', 'post-style' ),
 			__( 'Shortcode Generator', 'post-style' ),
 			'manage_options',
-			'post-style',
+			'post-style-generator',
 			array( $this, 'render_admin_page' )
 		);
 
