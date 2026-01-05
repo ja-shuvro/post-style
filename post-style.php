@@ -4,8 +4,8 @@
  * Plugin URI: https://example.com/post-style
  * Description: Professional WordPress plugin for displaying posts in multiple responsive styles (list, card, grid, masonry, slider) via shortcodes.
  * Version: 1.0.0
- * Author: Your Name
- * Author URI: https://example.com
+ * Author: JA Shuvro
+ * Author URI: http://shuvro.rf.gd
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: post-style

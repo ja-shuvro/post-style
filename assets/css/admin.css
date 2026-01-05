@@ -1,0 +1,147 @@
+/**
+ * Post Style - Admin Styles
+ *
+ * @package PostStyle
+ */
+
+.post-style-admin-container {
+	display: flex;
+	gap: 20px;
+	margin-top: 20px;
+}
+
+.post-style-admin-main {
+	flex: 1;
+	background: #fff;
+	padding: 20px;
+	border: 1px solid #ccd0d4;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.post-style-admin-sidebar {
+	width: 300px;
+}
+
+.post-style-widget {
+	background: #fff;
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid #ccd0d4;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.post-style-widget h3 {
+	margin-top: 0;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+.post-style-widget ul {
+	margin: 0;
+	padding-left: 20px;
+}
+
+.post-style-widget li {
+	margin-bottom: 8px;
+}
+
+.post-style-section {
+	margin-bottom: 30px;
+}
+
+.post-style-section h2 {
+	margin-top: 0;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+.post-style-shortcode-output {
+	margin-top: 30px;
+	padding-top: 20px;
+	border-top: 2px solid #0073aa;
+}
+
+.post-style-shortcode-box {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	background: #f5f5f5;
+	padding: 15px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin: 15px 0;
+}
+
+.post-style-shortcode-box code {
+	flex: 1;
+	font-size: 14px;
+	background: transparent;
+	padding: 0;
+	border: none;
+	color: #0073aa;
+	word-break: break-all;
+}
+
+.post-style-shortcode-box .button {
+	flex-shrink: 0;
+}
+
+.post-style-docs {
+	max-width: 900px;
+}
+
+.post-style-doc-section {
+	margin-bottom: 40px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #ddd;
+}
+
+.post-style-doc-section:last-child {
+	border-bottom: none;
+}
+
+.post-style-doc-section h2 {
+	margin-top: 0;
+	color: #23282d;
+}
+
+.post-style-doc-section h3 {
+	margin-top: 25px;
+	color: #0073aa;
+}
+
+.post-style-doc-section pre {
+	background: #f5f5f5;
+	padding: 15px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	overflow-x: auto;
+}
+
+.post-style-doc-section code {
+	background: transparent;
+	padding: 0;
+	font-size: 14px;
+}
+
+.post-style-doc-section table {
+	margin-top: 15px;
+}
+
+.post-style-doc-section table code {
+	background: #f0f0f0;
+	padding: 2px 6px;
+	border-radius: 3px;
+	font-size: 13px;
+}
+
+@media (max-width: 782px) {
+	.post-style-admin-container {
+		flex-direction: column;
+	}
+
+	.post-style-admin-sidebar {
+		width: 100%;
+	}
+}
+

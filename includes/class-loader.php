@@ -76,6 +76,13 @@ class Loader {
 	}
 
 	/**
+	 * Admin instance
+	 *
+	 * @var \PostStyle\Admin\Admin
+	 */
+	public $admin;
+
+	/**
 	 * Load required dependencies
 	 */
 	private function load_dependencies() {
@@ -83,6 +90,10 @@ class Loader {
 		require_once POST_STYLE_PLUGIN_DIR . 'includes/class-assets-manager.php';
 		require_once POST_STYLE_PLUGIN_DIR . 'includes/class-template-renderer.php';
 		require_once POST_STYLE_PLUGIN_DIR . 'includes/class-query-builder.php';
+
+		if ( is_admin() ) {
+			require_once POST_STYLE_PLUGIN_DIR . 'includes/class-admin.php';
+		}
 	}
 
 	/**
@@ -93,6 +104,10 @@ class Loader {
 		$this->template_renderer   = new Template_Renderer();
 		$this->assets_manager      = new Assets_Manager();
 		$this->shortcode_manager   = new Shortcode_Manager( $this->template_renderer, $this->query_builder );
+
+		if ( is_admin() ) {
+			$this->admin = new \PostStyle\Admin\Admin();
+		}
 	}
 
 	/**
