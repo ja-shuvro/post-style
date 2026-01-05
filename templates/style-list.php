@@ -23,16 +23,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<a href="<?php echo esc_url( get_permalink() ); ?>">
 						<?php the_post_thumbnail( 'medium', array( 'alt' => get_the_title() ) ); ?>
 					</a>
+					<?php
+					$categories = get_the_category();
+					if ( ! empty( $categories ) && 'yes' === $atts['show_meta'] ) :
+						?>
+						<span class="post-style-category-badge">
+							<?php echo esc_html( $categories[0]->name ); ?>
+						</span>
+					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 
 			<div class="post-style-content">
-				<h3 class="post-style-title">
-					<a href="<?php echo esc_url( get_permalink() ); ?>">
-						<?php echo esc_html( get_the_title() ); ?>
-					</a>
-				</h3>
-
 				<?php if ( 'yes' === $atts['show_meta'] ) : ?>
 					<div class="post-style-meta">
 						<span class="post-style-date">
@@ -59,6 +61,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				<?php endif; ?>
 
+				<h3 class="post-style-title">
+					<a href="<?php echo esc_url( get_permalink() ); ?>">
+						<?php echo esc_html( get_the_title() ); ?>
+					</a>
+				</h3>
+
 				<?php if ( 'yes' === $atts['show_excerpt'] ) : ?>
 					<div class="post-style-excerpt">
 						<?php
@@ -70,6 +78,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 						?>
 					</div>
 				<?php endif; ?>
+
+				<a href="<?php echo esc_url( get_permalink() ); ?>" class="post-style-read-more">
+					<?php esc_html_e( 'Read More', 'post-style' ); ?>
+				</a>
 			</div>
 		</li>
 	<?php endwhile; ?>

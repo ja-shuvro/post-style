@@ -42,6 +42,13 @@ class Assets_Manager {
 			array(),
 			POST_STYLE_VERSION
 		);
+
+		wp_enqueue_style(
+			'post-style-pagination',
+			POST_STYLE_PLUGIN_URL . 'assets/css/styles/pagination.css',
+			array( 'post-style-base' ),
+			POST_STYLE_VERSION
+		);
 	}
 
 	/**

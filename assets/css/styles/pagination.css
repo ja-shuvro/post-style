@@ -1,0 +1,115 @@
+/**
+ * Post Style - Pagination Styles
+ * Modern pagination design
+ *
+ * @package PostStyle
+ */
+
+.post-style-pagination {
+	margin: 3em 0 2em;
+	display: flex;
+	justify-content: center;
+}
+
+.post-style-pagination-list {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.post-style-pagination-item {
+	margin: 0;
+}
+
+.post-style-pagination-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	padding: 0.75em 1.25em;
+	min-width: 44px;
+	height: 44px;
+	background: var(--post-style-bg);
+	border: 1px solid var(--post-style-border);
+	border-radius: var(--post-style-radius-sm);
+	color: var(--post-style-text);
+	text-decoration: none;
+	font-weight: 500;
+	transition: var(--post-style-transition);
+	box-shadow: var(--post-style-shadow);
+}
+
+.post-style-pagination-link:hover {
+	background: var(--post-style-primary);
+	color: #fff;
+	border-color: var(--post-style-primary);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 12px -2px rgba(99, 102, 241, 0.3);
+}
+
+.post-style-pagination-link svg {
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+}
+
+.post-style-pagination-current .post-style-pagination-link,
+.post-style-pagination-current span {
+	background: linear-gradient(135deg, var(--post-style-primary) 0%, var(--post-style-primary-dark) 100%);
+	color: #fff;
+	border-color: var(--post-style-primary);
+	cursor: default;
+	box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.4);
+}
+
+.post-style-pagination-current .post-style-pagination-link:hover {
+	transform: none;
+	background: linear-gradient(135deg, var(--post-style-primary) 0%, var(--post-style-primary-dark) 100%);
+}
+
+.post-style-pagination-dots {
+	padding: 0.75em 0.5em;
+}
+
+.post-style-pagination-dots span {
+	color: var(--post-style-text-light);
+	font-weight: 600;
+}
+
+.post-style-pagination-prev .post-style-pagination-link,
+.post-style-pagination-next .post-style-pagination-link {
+	padding: 0.75em 1.5em;
+}
+
+@media (max-width: 768px) {
+	.post-style-pagination-list {
+		gap: 0.375em;
+	}
+
+	.post-style-pagination-link {
+		padding: 0.625em 1em;
+		min-width: 40px;
+		height: 40px;
+		font-size: 0.9em;
+	}
+
+	.post-style-pagination-prev .post-style-pagination-link,
+	.post-style-pagination-next .post-style-pagination-link {
+		padding: 0.625em 1.25em;
+	}
+
+	.post-style-pagination-link span {
+		display: none;
+	}
+
+	.post-style-pagination-prev .post-style-pagination-link svg,
+	.post-style-pagination-next .post-style-pagination-link svg {
+		margin: 0;
+	}
+}
+

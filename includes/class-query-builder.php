@@ -27,12 +27,18 @@ class Query_Builder {
 		$defaults = $this->get_default_attributes();
 		$atts     = wp_parse_args( $atts, $defaults );
 
+		$paged = 1;
+		if ( 'yes' === $atts['pagination'] ) {
+			$paged = max( 1, isset( $_GET['ps_page'] ) ? absint( $_GET['ps_page'] ) : 1 );
+		}
+
 		$query_args = array(
 			'post_type'      => sanitize_text_field( $atts['post_type'] ),
 			'posts_per_page' => absint( $atts['posts_per_page'] ),
 			'post_status'    => 'publish',
 			'orderby'        => sanitize_text_field( $atts['orderby'] ),
 			'order'          => strtoupper( sanitize_text_field( $atts['order'] ) ) === 'ASC' ? 'ASC' : 'DESC',
+			'paged'          => $paged,
 		);
 
 		if ( ! empty( $atts['category'] ) ) {
@@ -107,6 +113,7 @@ class Query_Builder {
 			'excerpt_length' => 20,
 			'show_meta'      => 'yes',
 			'show_image'     => 'yes',
+			'pagination'     => 'no',
 		);
 	}
 
