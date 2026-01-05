@@ -1,0 +1,94 @@
+/**
+ * Post Style - Base Styles
+ * Mobile-first, responsive design
+ *
+ * @package PostStyle
+ */
+
+.post-style-wrapper {
+	margin: 1.5em 0;
+	clear: both;
+}
+
+.post-style-no-posts {
+	padding: 2em;
+	text-align: center;
+	color: #666;
+	background: #f5f5f5;
+	border-radius: 4px;
+}
+
+.post-style-item {
+	margin-bottom: 1.5em;
+}
+
+.post-style-image {
+	overflow: hidden;
+	line-height: 0;
+}
+
+.post-style-image img {
+	width: 100%;
+	height: auto;
+	display: block;
+	transition: transform 0.3s ease;
+}
+
+.post-style-image a:hover img {
+	transform: scale(1.05);
+}
+
+.post-style-title {
+	margin: 0.75em 0 0.5em;
+	font-size: 1.25em;
+	line-height: 1.4;
+}
+
+.post-style-title a {
+	text-decoration: none;
+	color: inherit;
+	transition: color 0.2s ease;
+}
+
+.post-style-title a:hover {
+	color: #0073aa;
+}
+
+.post-style-meta {
+	font-size: 0.875em;
+	color: #666;
+	margin-bottom: 0.5em;
+}
+
+.post-style-meta span {
+	margin-right: 1em;
+}
+
+.post-style-excerpt {
+	color: #555;
+	line-height: 1.6;
+	margin: 0.75em 0;
+}
+
+.post-style-read-more {
+	display: inline-block;
+	margin-top: 0.75em;
+	padding: 0.5em 1em;
+	background: #0073aa;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 3px;
+	transition: background 0.2s ease;
+}
+
+.post-style-read-more:hover {
+	background: #005a87;
+	color: #fff;
+}
+
+@media (min-width: 768px) {
+	.post-style-title {
+		font-size: 1.5em;
+	}
+}
+

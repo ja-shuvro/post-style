@@ -1,0 +1,65 @@
+/**
+ * Post Style - Grid Style
+ *
+ * @package PostStyle
+ */
+
+.post-style-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.5em;
+}
+
+.post-style-grid-item {
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: box-shadow 0.3s ease;
+}
+
+.post-style-grid-item:hover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-style-grid-content {
+	padding: 1.5em;
+}
+
+.post-style-columns-2 .post-style-grid {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.post-style-columns-3 .post-style-grid {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.post-style-columns-4 .post-style-grid {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+	.post-style-columns-4 .post-style-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.post-style-columns-3 .post-style-grid,
+	.post-style-columns-4 .post-style-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 480px) {
+	.post-style-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.post-style-columns-2 .post-style-grid,
+	.post-style-columns-3 .post-style-grid,
+	.post-style-columns-4 .post-style-grid {
+		grid-template-columns: 1fr;
+	}
+}
+

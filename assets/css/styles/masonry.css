@@ -1,0 +1,63 @@
+/**
+ * Post Style - Masonry Style
+ *
+ * @package PostStyle
+ */
+
+.post-style-masonry {
+	column-gap: 1.5em;
+	column-fill: balance;
+}
+
+.post-style-masonry-item {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 1.5em;
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: box-shadow 0.3s ease;
+	break-inside: avoid;
+	page-break-inside: avoid;
+}
+
+.post-style-masonry-item:hover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-style-masonry-content {
+	padding: 1.5em;
+}
+
+.post-style-columns-2 .post-style-masonry {
+	column-count: 2;
+}
+
+.post-style-columns-3 .post-style-masonry {
+	column-count: 3;
+}
+
+.post-style-columns-4 .post-style-masonry {
+	column-count: 4;
+}
+
+@media (max-width: 1024px) {
+	.post-style-columns-4 .post-style-masonry {
+		column-count: 3;
+	}
+}
+
+@media (max-width: 768px) {
+	.post-style-columns-3 .post-style-masonry,
+	.post-style-columns-4 .post-style-masonry {
+		column-count: 2;
+	}
+}
+
+@media (max-width: 480px) {
+	.post-style-masonry {
+		column-count: 1 !important;
+	}
+}
+

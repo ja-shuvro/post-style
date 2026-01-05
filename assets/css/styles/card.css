@@ -1,0 +1,74 @@
+/**
+ * Post Style - Card Style
+ *
+ * @package PostStyle
+ */
+
+.post-style-cards {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.5em;
+}
+
+.post-style-card {
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.post-style-card:hover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	transform: translateY(-2px);
+}
+
+.post-style-card .post-style-image {
+	border-radius: 8px 8px 0 0;
+}
+
+.post-style-card-content {
+	padding: 1.5em;
+}
+
+.post-style-card .post-style-title {
+	margin-top: 0;
+}
+
+.post-style-columns-2 .post-style-cards {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.post-style-columns-3 .post-style-cards {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.post-style-columns-4 .post-style-cards {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+	.post-style-columns-4 .post-style-cards {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.post-style-columns-3 .post-style-cards,
+	.post-style-columns-4 .post-style-cards {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 480px) {
+	.post-style-cards {
+		grid-template-columns: 1fr;
+	}
+
+	.post-style-columns-2 .post-style-cards,
+	.post-style-columns-3 .post-style-cards,
+	.post-style-columns-4 .post-style-cards {
+		grid-template-columns: 1fr;
+	}
+}
+

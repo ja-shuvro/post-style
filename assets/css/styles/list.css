@@ -1,0 +1,44 @@
+/**
+ * Post Style - List Style
+ *
+ * @package PostStyle
+ */
+
+.post-style-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.post-style-list-item {
+	display: flex;
+	gap: 1.5em;
+	padding: 1.5em 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.post-style-list-item:last-child {
+	border-bottom: none;
+}
+
+.post-style-list-item .post-style-image {
+	flex: 0 0 150px;
+	max-width: 150px;
+}
+
+.post-style-list-item .post-style-content {
+	flex: 1;
+}
+
+@media (max-width: 767px) {
+	.post-style-list-item {
+		flex-direction: column;
+		gap: 1em;
+	}
+
+	.post-style-list-item .post-style-image {
+		flex: 1 1 auto;
+		max-width: 100%;
+	}
+}
+
